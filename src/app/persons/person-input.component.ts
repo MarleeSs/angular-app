@@ -8,10 +8,18 @@ import {Component} from "@angular/core";
 
 export class PersonInputComponent {
 
-  onCreatePerson(personName: string){
+  enteredPersonName: string = '';
 
-    console.log(`Person ${personName} Created.`)
+  onCreatePerson(){
 
+    // convert to lowercase and convert to pascal case
+    this.enteredPersonName = this.enteredPersonName.toLowerCase().replace(/\b[a-z]/g, function(letter) {
+      return letter.toUpperCase();
+    });
+
+    console.log(`Person ${this.enteredPersonName} Created.`)
+
+    this.enteredPersonName = ''
   }
 
 }
