@@ -6,4 +6,12 @@ import {Component} from "@angular/core";
   styleUrls: ['./app-input.component.scss']
 })
 
-export class PersonInputComponent { }
+export class PersonInputComponent {
+
+  onCreatePerson(personName: string){
+
+    console.log(`Person ${personName} Created.`)
+
+  }
+
+}
