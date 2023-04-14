@@ -7,7 +7,8 @@ import {Injectable} from "@angular/core";
 export class PersonService {
   persons: string[] = ['Coba', 'Aja', 'Atuh'];
 
-  onPersonCreate(name: string){
+  addPerson(name: string){
     this.persons.push(name);
+    console.log(this.persons)
   }
 }
