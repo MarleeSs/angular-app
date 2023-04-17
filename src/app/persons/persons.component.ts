@@ -10,6 +10,7 @@ import {Subscription} from "rxjs";
 export class PersonsComponent implements OnInit, OnDestroy{
   personList: string[];
   private personListSubs: Subscription = new Subscription();
+  isFetching = false;
 
   constructor(private personService: PersonService) {
     this.personList = personService.persons;
@@ -18,7 +19,9 @@ export class PersonsComponent implements OnInit, OnDestroy{
   ngOnInit() {
     this.personService.personChanged.subscribe(persons => {
       this.personList = persons;
+      this.isFetching = false;
     });
+    this.isFetching = true;
     this.personService.fetchPersons();
   }
 
