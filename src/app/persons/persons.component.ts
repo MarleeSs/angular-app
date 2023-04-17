@@ -16,10 +16,10 @@ export class PersonsComponent implements OnInit, OnDestroy{
   }
 
   ngOnInit() {
-    this.personList = this.personService.persons;
     this.personService.personChanged.subscribe(persons => {
       this.personList = persons;
     });
+    this.personService.fetchPersons();
   }
 
   onRemovePerson(personName: string){
